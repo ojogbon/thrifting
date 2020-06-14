@@ -1,4 +1,7 @@
-<?php include '../includes/Transaction.php'?>
+<?php include '../includes/Transaction.php';
+$user_id = $_SESSION["user_id"];
+$user_email = $_SESSION["user_email"];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,6 +35,8 @@
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/me.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -62,6 +67,18 @@ include 'header.php';?>
                     </div><!-- /# column -->
                 </div><!-- /# row -->
                 <div class="main-content">
+                  <p class="notify"><b>10%</b> of the total daily,weekly,monthly or yearly savings will be for the <b>Admin</b></p>
+                  <div class="row">
+                      <div class="col-md-2 beforeDeduction">
+                        <h5>before deduction</h5>
+                        <?php
+
+                                                $sql = "SELECT sum(`amount_paid`) as total FROM `thrifttransaction` where user_id='".$user_id."'";
+                                                $allTransactionsBeforeDeduction = $transaction->getAllTransactionBySql($sql);
+                                                echo "<span>N<span> ".$allTransactionsBeforeDeduction [0]["total"];
+                        ?>
+                      </div>
+                  </div>
                 <?php include 'widget.php';?>
                 <!-- /# row -->
 

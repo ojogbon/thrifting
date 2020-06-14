@@ -2,8 +2,10 @@
     include "init.php";
 
     include ($_SERVER['DOCUMENT_ROOT']. '/thrifting/models/Transaction.php');
+    include ($_SERVER['DOCUMENT_ROOT']. '/thrifting/models/Saving.php');
 
     $transaction = new Transaction("thrifttransaction");
+    $saving = new Saving();
 
 
     $key = "";

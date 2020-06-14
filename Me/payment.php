@@ -1,4 +1,7 @@
-
+<?php include '../includes/Transaction.php';
+$user_id = $_SESSION["user_id"];
+$user_email = $_SESSION["user_email"];
+?>
 <!DOCTYPE html>
 <html lang="en">
 

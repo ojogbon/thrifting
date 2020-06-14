@@ -8,11 +8,12 @@
 												<i class="ti-cup"></i>
 											</div>
 											<div class="stat-content p-30">
-												<div class="stat-text">Total Income</div>
+												<div class="stat-text">Total Income (after deduction)</div>
 												<?php
-                                                    $user_id =1;
-                                                $sql = "SELECT sum(`amount_paid`) as total FROM `thrifttransaction` where user_id='".$user_id."'";
+
+                                                $sql = "SELECT (sum(`amount_paid`) - (0.1*(sum(`amount_paid`)))) as total FROM `thrifttransaction` where user_id='".$user_id."'";
                                                 $allTransactions = $transaction->getAllTransactionBySql($sql);
+
 
                         ?>
 												<div class="stat-digit"><?php echo $allTransactions[0]["total"];?></div>
@@ -100,7 +101,22 @@
 											<div class="stat-content p-t-12 p-b-12">
 											   <div class="text-left dib">
 												<div class="stat-heading">Savings</div>
-												<div class="stat-text">Loading</div>
+												<div class="stat-text">
+													<?php
+
+																									$sql = "SELECT `intervals`, `amount` FROM `savings` where user_id ='".$user_id."' order by id desc";
+																									$savingdDetails = $saving->getAllSavingBySql($sql);
+																									if (count($savingdDetails) < 1) {
+																										// code...
+																										echo "	Loading...";
+																									}else {
+																										// code...
+																										echo $savingdDetails[0]["amount"]."  ". $savingdDetails[0]["intervals"];
+																									}
+
+													?>
+
+												</div>
 												</div>
 											</div>
 										</div>

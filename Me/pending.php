@@ -1,4 +1,7 @@
-<?php include '../includes/Transaction.php'?>
+<?php include '../includes/Transaction.php';
+$user_id = $_SESSION["user_id"];
+$user_email = $_SESSION["user_email"];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,7 +87,7 @@ include 'header.php';?>
                                         </thead>
                                         <tbody>
                                         <?php
-                                        $user_id = 1;
+
                                         $sql = "SELECT *  FROM `thrifttransaction` where status = 'pending' and  user_id='".$user_id."'";
                                         $markedTransactions = $transaction->getAllTransactionBySql($sql);
                                         $count = 0;

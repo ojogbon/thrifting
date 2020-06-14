@@ -11,7 +11,7 @@
         <div class="pull-right p-r-15">
             <ul>
 
-                <li class="header-icon dib"><img class="avatar-img" src="assets/images/avatar/1.jpg" alt="" /> <span class="user-avatar"><?php //echo $_SESSION["logged_in_mail"]; ?></span>
+                <li class="header-icon dib"><img class="avatar-img" src="assets/images/avatar/1.jpg" alt="" /> <span class="user-avatar"><?php echo $user_email; ?></span>
                 </li>
             </ul>
         </div>

@@ -50,9 +50,9 @@ class User {
         const xhr = new XMLHttpRequest();
         xhr.open("post",this.url,true);
         xhr.onreadystatechange = function () {
-            console.log(xhr.responseText +" NNN ");
+
             if (xhr.readyState == 4 && xhr.status  == 200) {
-                if (xhr.responseText) {
+                if (xhr.responseText != "Fields can't be empty") {
 
                     for(var s = 0 ; s < forms.length; s ++){
 
@@ -62,6 +62,8 @@ class User {
                         console.log("b")
                     }
                     alert('Done!');
+                }else {
+                              alert(xhr.responseText);
                 }
             }
         }
@@ -81,6 +83,8 @@ class User {
                 console.log(dbContent+"  ggggggggggggo")
                 if(dbContent == 1){
                     window.location.replace("../Me");
+                }else {
+                  alert(" Email or password not valid");
                 }
             }
         }
@@ -91,10 +95,15 @@ class User {
 
         const reg = document.querySelector(".registerCover");
         const logIN = document.querySelector(".logIn");
+        const agreeded = document.querySelector(".agreeded");
 
         document.querySelector(".add-to-btn").addEventListener('click',eve => {
             eve.preventDefault();
+          if(agreeded.checked){
             this.SendToController ();
+          }else {
+            alert("We need you to accept Terms and Condition in order to continue ")
+          }
         });
 
 
@@ -126,4 +135,3 @@ class User {
 
 const user = new User("../includes/User.php?key=1234567opiuyt&method=insert");
 user.doClick();
-

@@ -33,6 +33,7 @@ elseif ($methods == "selectall" || $methods == "getall"){
     $sql = "select id from users where email='".$username."' and password ='".$password."'";
     if(count($user->getAllUserBySql($sql)[0]) > 0){
         $_SESSION["user_id"] =  $user->getAllUserBySql($sql)[0]["id"];
+        $_SESSION["user_email"] =  $username;
         echo 1;
     }else{
         echo 0;
