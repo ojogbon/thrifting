@@ -1,8 +1,13 @@
 <?php
-define("SERVERNAME","localhost");
-define("DBNAME","thrift");
-define("USERNAME","root");
-define("PASSWORD","");
+// define("SERVERNAME","localhost");
+// define("DBNAME","thrift");
+// define("USERNAME","root");
+// define("PASSWORD","");
+
+define("SERVERNAME","us-cdbr-east-02.cleardb.com");
+define("DBNAME","heroku_7edec63ace2b6c5");
+define("USERNAME","b1a757ed6ef1a0");
+define("PASSWORD","0a776172");
 /**
  * Class DbHandler v2.0
  * This class handles database connection and execution

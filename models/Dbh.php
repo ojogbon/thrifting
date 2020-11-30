@@ -10,10 +10,16 @@ include_once "DbHandler.php";
 
         public function dbConnect()
         {
-            $this->servername = "localhost" ;
-            $this->username = "root";
-            $this->password = "";
-            $this->dbname = "thrift";
+            // $this->servername = "localhost" ;
+            // $this->username = "root";
+            // $this->password = "";
+            // $this->dbname = "thrift";
+            // $this->charset = "utf8mb4";
+
+            $this->servername = "us-cdbr-east-02.cleardb.com" ;
+            $this->username = "b1a757ed6ef1a0";
+            $this->password = "0a776172";
+            $this->dbname = "heroku_7edec63ace2b6c5";
             $this->charset = "utf8mb4";
 
 
